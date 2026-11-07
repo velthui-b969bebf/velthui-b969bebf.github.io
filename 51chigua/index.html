@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>51吃瓜-热门娱乐话题_明星八卦动态_吃瓜社区讨论</title>
+    <meta name="description" content="51吃瓜专题页汇集热门娱乐话题、明星八卦动态与社区深度讨论。这里有最新吃瓜资讯、热门榜单、用户真实评论和常见问答，帮你快速了解网络热议事件与娱乐焦点。">
+    <meta name="keywords" content="51吃瓜,娱乐八卦,热门话题,明星动态,吃瓜社区">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ff7a45'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='%23ffffff' font-family='sans-serif'%3E吃%3C/text%3E%3C/svg%3E">
+    <style>
+        :root {
+            --bg: #f9f7f5;
+            --surface: #ffffff;
+            --text-primary: #1a1e24;
+            --text-secondary: #4a4f5a;
+            --text-muted: #7c818a;
+            --accent: #ff6b3d;
+            --accent-soft: #fff0ea;
+            --accent-deep: #d94f1e;
+            --border-light: #edeae6;
+            --shadow-sm: 0 6px 16px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.06);
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        .nav-bar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.88);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            height: 68px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(255, 107, 61, 0.3);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .search-mini {
+            display: flex;
+            align-items: center;
+            background: #f3f0ec;
+            border-radius: 40px;
+            padding: 6px 16px;
+            border: 1px solid var(--border-light);
+        }
+
+        .search-mini input {
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            padding: 6px 0;
+            outline: none;
+            width: 140px;
+            color: var(--text-primary);
+        }
+
+        .search-mini input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-mini button {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Banner 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+            padding: 40px 0 36px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.8px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-top: 8px;
+        }
+
+        .hero-search-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .hero-search {
+            flex: 1;
+            min-width: 260px;
+            display: flex;
+            background: var(--surface);
+            border-radius: 60px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            padding: 4px 4px 4px 22px;
+        }
+
+        .hero-search input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            outline: none;
+            padding: 12px 0;
+            color: var(--text-primary);
+        }
+
+        .hero-search button {
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .hero-search button:hover {
+            background: var(--accent-deep);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .hero-tags a {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            padding: 8px 18px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-tags a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* 通用区块 */
+        .section {
+            padding: 54px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+
+        .section-title small {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-left: 12px;
+        }
+
+        .section-link {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* 热门推荐卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: 22px 20px 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 30px;
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
+            padding-top: 12px;
+            margin-top: auto;
+        }
+
+        /* 最新更新列表 */
+        .update-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 32px;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-light);
+            font-size: 15px;
+        }
+
+        .update-time {
+            font-size: 13px;
+            color: var(--text-muted);
+            min-width: 78px;
+        }
+
+        .update-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-right: 6px;
+        }
+
+        .update-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* 分类入口 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 14px;
+        }
+
+        .category-item {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: 18px 12px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .category-item:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+            color: var(--accent-deep);
+        }
+
+        /* 深度解析正文 */
+        .deep-analysis {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 42px 48px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .deep-analysis h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .deep-analysis p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .deep-analysis strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: 24px 26px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-q {
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .faq-a {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* 用户评论 */
+        .comment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .comment-card {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: 20px 22px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comment-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(145deg, #ffb08a, #ff7a45);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .nickname {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* 相关资讯 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 22px;
+        }
+
+        .news-card {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
+        }
+
+        .news-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .news-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        .footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border-light);
+            padding: 48px 0 32px;
+            margin-top: 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 320px;
+            margin-top: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-desc {
+                font-size: 15px;
+            }
+            .update-list {
+                grid-template-columns: 1fr;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .deep-analysis {
+                padding: 28px 22px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .nav-inner {
+                height: auto;
+                padding: 12px 0;
+            }
+            .nav-links {
+                gap: 16px;
+            }
+            .search-mini {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d9d2ca;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <header class="nav-bar">
+        <div class="container nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-mark">51</div>
+                <div class="logo-text">51<span>吃瓜</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="/#hot">热门推荐</a>
+                <a href="/#latest">最新动态</a>
+                <a href="/#category">分类入口</a>
+                <a href="/#analysis">深度解析</a>
+                <a href="/#faq">常见问题</a>
+                <a href="/#comments">用户评论</a>
+                <a href="/#news">相关资讯</a>
+            </div>
+            <div class="search-mini">
+                <input type="text" placeholder="搜八卦、找话题..." aria-label="搜索">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Banner -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h1><span>51吃瓜</span> · 热门娱乐话题与吃瓜社区</h1>
+                <p class="hero-desc">全网热议八卦、明星动态、网红事件一站聚合。在这里，你能看到最真实的网友讨论、最及时的更新快讯，以及多角度的事件解析。不站队、不造谣，只做有态度的吃瓜群众。</p>
+            </div>
+            <div class="hero-search-row">
+                <div class="hero-search">
+                    <input type="text" placeholder="搜索你感兴趣的瓜... 如：某综艺争议、新剧路透、网红分手">
+                    <button>吃瓜</button>
+                </div>
+            </div>
+            <div class="hero-tags">
+                <a href="/#hot">🔥 今日热榜</a>
+                <a href="/#latest">⏱️ 刚刚更新</a>
+                <a href="/#category">🎭 明星八卦</a>
+                <a href="/#category">🎬 影视综</a>
+                <a href="/#category">📱 网红圈</a>
+                <a href="/#category">💔 情感瓜</a>
+                <a href="/#comments">💬 神评论</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section id="hot" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门吃瓜推荐 <small>大家都在看</small></h2>
+                <a href="/#latest" class="section-link">查看全部 →</a>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-title">某S级综艺深夜录制冲突</div>
+                    <div class="card-tags"><span class="tag">综艺</span><span class="tag">争议</span><span class="tag">现场</span></div>
+                    <div class="card-excerpt">据现场观众爆料，两位常驻嘉宾因游戏环节产生摩擦，录制一度中断半小时。节目组尚未回应。</div>
+                    <div class="card-meta"><span>🔥 8.2万热度</span><span>2小时前</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">顶流恋情再添实锤？同款餐具引猜测</div>
+                    <div class="card-tags"><span class="tag">明星</span><span class="tag">恋情</span><span class="tag">热搜</span></div>
+                    <div class="card-excerpt">网友扒出两人前后脚晒出的居家照中出现了同款餐盘，双方粉丝反应两极，工作室暂未辟谣。</div>
+                    <div class="card-meta"><span>🔥 12.4万热度</span><span>4小时前</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">新剧开播即翻车？滤镜太重被吐槽</div>
+                    <div class="card-tags"><span class="tag">电视剧</span><span class="tag">口碑</span><span class="tag">吐槽</span></div>
+                    <div class="card-excerpt">古装偶像剧《青云渡》首播当晚因磨皮过度、演员表情模糊登上热搜，导演微博评论区已沦陷。</div>
+                    <div class="card-meta"><span>🔥 6.7万热度</span><span>6小时前</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">网红夫妇官宣离婚，评论区炸了</div>
+                    <div class="card-tags"><span class="tag">网红</span><span class="tag">情感</span><span class="tag">离婚</span></div>
+                    <div class="card-excerpt">拥有800万粉丝的“凯哥和鹿鹿”发布和平分手声明，网友翻出三个月前合体直播的尴尬片段。</div>
+                    <div class="card-meta"><span>🔥 9.9万热度</span><span>8小时前</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">选秀回锅肉选手逆袭，剧本还是真实力？</div>
+                    <div class="card-tags"><span class="tag">选秀</span><span class="tag">逆袭</span><span class="tag">讨论</span></div>
+                    <div class="card-excerpt">某演技类综艺中，曾三次落选的选手凭借一段哭戏获得满票，网友争论到底是节目效果还是厚积薄发。</div>
+                    <div class="card-meta"><span>🔥 5.3万热度</span><span>10小时前</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">音乐节压轴歌手迟到40分钟，观众齐喊退票</div>
+                    <div class="card-tags"><span class="tag">音乐</span><span class="tag">现场</span><span class="tag">事故</span></div>
+                    <div class="card-excerpt">昨晚某户外音乐节因设备故障导致压轴表演延迟，部分观众情绪激动，主办方凌晨发道歉声明。</div>
+                    <div class="card-meta"><span>🔥 7.1万热度</span><span>12小时前</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section id="latest" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新吃瓜动态 <small>实时更新</small></h2>
+                <a href="/#news" class="section-link">更多资讯 →</a>
+            </div>
+            <div class="update-list">
+                <div class="update-item"><span class="update-time">11-07 14:30</span><span><span class="update-title">某影帝被拍到现身民政局</span><span class="update-desc">疑似办理离婚手续，工作人员拒绝回应</span></span></div>
+                <div class="update-item"><span class="update-time">11-07 13:15</span><span><span class="update-title">综艺《一路繁花》官宣阵容</span><span class="update-desc">五位影后级女星加盟，网友期待值拉满</span></span></div>
+                <div class="update-item"><span class="update-time">11-07 11:50</span><span><span class="update-title">网红雪梨否认偷税传闻</span><span class="update-desc">已委托律师取证，称将起诉造谣者</span></span></div>
+                <div class="update-item"><span class="update-time">11-07 10:20</span><span><span class="update-title">《庆余年3》路透曝光</span><span class="update-desc">张若昀片场状态佳，新角色造型引猜测</span></span></div>
+                <div class="update-item"><span class="update-time">11-07 09:05</span><span><span class="update-title">偶像男团成员被曝恋爱</span><span class="update-desc">女方为素人，粉丝站关站抗议</span></span></div>
+                <div class="update-item"><span class="update-time">11-06 22:40</span><span><span class="update-title">《歌手2027》首发名单泄露</span><span class="update-desc">两位国际级唱将+三位新生代，洪啸回应</span></span></div>
+                <div class="update-item"><span class="update-time">11-06 20:10</span><span><span class="update-title">某导演朋友圈怒斥演员轧戏</span><span class="update-desc">未点名但线索指向明显，评论区热议</span></span></div>
+                <div class="update-item"><span class="update-time">11-06 18:25</span><span><span class="update-title">脱口秀演员House复出</span><span class="update-desc">将在下月小剧场演出，门票秒罄</span></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section id="category" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">按分类吃瓜 <small>快速找到兴趣点</small></h2>
+            </div>
+            <div class="category-grid">
+                <a href="/#hot" class="category-item">🔥 今日热榜</a>
+                <a href="/#latest" class="category-item">🎬 影视剧透</a>
+                <a href="/#hot" class="category-item">🎤 综艺现场</a>
+                <a href="/#comments" class="category-item">💬 明星八卦</a>
+                <a href="/#hot" class="category-item">📱 网红动态</a>
+                <a href="/#news" class="category-item">🎵 音乐现场</a>
+                <a href="/#analysis" class="category-item">💔 情感纠纷</a>
+                <a href="/#faq" class="category-item">📰 热搜解析</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section id="analysis" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="deep-analysis">
+                <h2>51吃瓜深度观察：为什么我们爱“吃瓜”？</h2>
+                <p><strong>51吃瓜</strong>并不是一个简单的八卦聚合页，它更像是一面镜子，映射出当代网民对娱乐内容的真实需求。从明星恋情到综艺冲突，从网红翻车到影视剧路透，每一个“瓜”背后都藏着大众情绪的出口。人们在讨论中站队、调侃、分析，甚至创作表情包和段子，形成了一股独特的网络亚文化。</p>
+                <p>娱乐话题的传播速度极快，但信息往往碎片化、真假难辨。<strong>51吃瓜</strong>试图在快速更新与事实核查之间找到平衡：我们不会第一时间发布未经证实的爆料，而是优先呈现多方信源和网友的理性讨论。比如近期某综艺录制冲突事件，我们同时整理了现场观众描述、节目组官方回应以及行业人士的分析，让吃瓜群众既能看到热闹，也能看懂门道。</p>
+                <p>在内容选择上，<strong>51吃瓜</strong>更偏向“有讨论价值”的话题。纯粹的恶意炒作或侵犯隐私的内容会被过滤。我们鼓励用户从事件中观察行业生态、粉丝文化、媒介伦理等更深层的议题。例如，关于“磨皮滤镜”的争论，本质上是对影视工业化审美单一化的反思；而网红离婚事件则引发了关于情感博主商业模式的讨论。这些延伸思考让吃瓜不再只是消遣，也可以成为理解的起点。</p>
+                <p>对于新用户来说，<strong>51吃瓜</strong>的浏览路径非常清晰：先看热榜了解当下最火的话题，再通过分类找到自己感兴趣的领域，然后阅读深度解析或评论区的神回复。如果你只想快速“补课”，FAQ和资讯流也提供了浓缩版的信息。无论你是娱乐圈老饕还是偶尔围观的路人，都能在这里找到舒适的吃瓜姿势。</p>
+                <p>最后要提醒的是：吃瓜虽有趣，但请保持善意。我们反对网络暴力与恶意揣测，所有内容仅供参考与讨论。遇到争议信息时，不妨多等一等、多看一看，让子弹飞一会儿。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题 <small>关于51吃瓜</small></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q">51吃瓜主要聚合哪些类型的内容？</div>
+                    <div class="faq-a">涵盖明星八卦、影视综艺动态、网红圈事件、音乐现场、情感纠纷以及热搜话题解析。内容以娱乐向为主，兼顾事件的多角度讨论，不涉及时政敏感话题。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">这里的瓜都是真实的吗？</div>
+                    <div class="faq-a">我们尽量引用可靠信源（如官方声明、主流媒体报道、现场观众多角度描述），但网络信息存在不确定性。建议将本站内容作为线索参考，遇到争议事件请以当事人官方回应为准。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">如何快速找到某个明星或事件的讨论？</div>
+                    <div class="faq-a">可以使用页面顶部的搜索框输入关键词，或者通过分类入口筛选。热门推荐和最新动态也会实时更新近期焦点事件，适合快速浏览。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">51吃瓜适合什么人群浏览？</div>
+                    <div class="faq-a">适合对娱乐内容感兴趣、喜欢了解网络热点、愿意参与理性讨论的网民。如果你只想安静吃瓜不参与争论，这里的信息流和FAQ也能满足基本信息获取需求。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">可以在评论区发表不同观点吗？</div>
+                    <div class="faq-a">当然可以。我们鼓励多元观点，但请遵守社区规则：不人身攻击、不造谣传谣、不泄露隐私。理性讨论会让吃瓜体验更有价值。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">页面多久更新一次？</div>
+                    <div class="faq-a">最新动态和热榜通常每天多次更新，深度解析和FAQ会根据热点变化不定期调整。建议收藏页面或关注资讯板块，第一时间获取新内容。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section id="comments" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">吃瓜群众怎么说 <small>真实评论</small></h2>
+            </div>
+            <div class="comment-grid">
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">吃</div><div><div class="nickname">瓜田里的猹</div><div class="comment-date">11-07 13:22</div></div></div>
+                    <div class="comment-text">那个综艺冲突我看了现场观众不同视角的描述，感觉就是剪辑放大了矛盾，大家别太当真。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">小</div><div><div class="nickname">小透明吃瓜</div><div class="comment-date">11-07 11:05</div></div></div>
+                    <div class="comment-text">顶流恋情那个同款餐盘真的有点硬凑……不过评论区比瓜本身精彩哈哈哈。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">路</div><div><div class="nickname">路人甲乙丙</div><div class="comment-date">11-06 22:48</div></div></div>
+                    <div class="comment-text">《青云渡》滤镜确实劝退，但剧情节奏还可以再观望几集，现在下结论太早。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">追</div><div><div class="nickname">追剧不追星</div><div class="comment-date">11-06 20:15</div></div></div>
+                    <div class="comment-text">网红夫妇离婚那个，感觉他们早就貌合神离了，视频里连眼神交流都没有。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">音</div><div><div class="nickname">音乐节常客</div><div class="comment-date">11-06 18:30</div></div></div>
+                    <div class="comment-text">音乐节迟到四十分钟真的过分，观众喊退票完全能理解，主办方管理太混乱。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">选</div><div><div class="nickname">选秀老粉</div><div class="comment-date">11-06 16:10</div></div></div>
+                    <div class="comment-text">回锅肉逆袭那段我看了，情绪到位，但说是剧本倒也不至于，人家确实进步很大。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">八</div><div><div class="nickname">八卦雷达</div><div class="comment-date">11-06 14:55</div></div></div>
+                    <div class="comment-text">影帝民政局那个图好糊啊，先别急着下结论，等工作室回应吧。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">综</div><div><div class="nickname">综艺观察员</div><div class="comment-date">11-06 12:20</div></div></div>
+                    <div class="comment-text">《一路繁花》阵容是真的强，希望别搞撕逼剧本，好好旅行聊天就很好看了。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">吐</div><div><div class="nickname">吐槽星人</div><div class="comment-date">11-06 10:08</div></div></div>
+                    <div class="comment-text">现在电视剧滤镜十级磨皮，演员微表情全没了，导演们能不能醒醒。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">冷</div><div><div class="nickname">冷静吃瓜</div><div class="comment-date">11-05 23:40</div></div></div>
+                    <div class="comment-text">这个站信息整理得挺清楚的，没有乱七八糟的广告，适合我这种只想快速了解事情经过的人。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">期</div><div><div class="nickname">期待新瓜</div><div class="comment-date">11-05 21:15</div></div></div>
+                    <div class="comment-text">蹲一个《歌手2027》首发名单的官宣，网传版本有好几个，不知道信谁。</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-head"><div class="avatar">佛</div><div><div class="nickname">佛系冲浪</div><div class="comment-date">11-05 19:02</div></div></div>
+                    <div class="comment-text">吃瓜归吃瓜，大家还是别去当事人微博底下骂人，将心比心吧。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section id="news" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">相关资讯 <small>延伸阅读</small></h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">2026-11-07</div>
+                    <div class="news-title">综艺冲突事件后续：双方工作室同时发声</div>
+                    <div class="news-desc">今日上午两家工作室先后发布声明，称“录制现场因游戏环节产生误会，已私下沟通解决”，呼吁网友停止过度解读。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-11-06</div>
+                    <div class="news-title">《庆余年3》路透：新角色造型曝光</div>
+                    <div class="news-desc">网友拍到剧组在横店拍摄外景，一位神秘女演员身着红衣古装现身，原著粉猜测可能是“海棠朵朵”相关剧情。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-11-06</div>
+                    <div class="news-title">音乐节主办方公布补偿方案</div>
+                    <div class="news-desc">针对压轴表演延迟，主办方宣布为全场观众提供下一场音乐节五折购票权益，并承诺升级设备检查流程。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-11-05</div>
+                    <div class="news-title">网红夫妇离婚后首度同框？假的</div>
+                    <div class="news-desc">网传两人在机场同行的照片经核实为旧图，双方目前各自忙碌，女方已搬离共同住所。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-11-05</div>
+                    <div class="news-title">演技综艺导师发文力挺争议选手</div>
+                    <div class="news-desc">导师在微博表示“舞台表现有目共睹，不要用恶意揣测否定别人的努力”，获得大量选手粉丝点赞。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-11-04</div>
+                    <div class="news-title">多部古装剧调整滤镜，行业风向变了？</div>
+                    <div class="news-desc">近期播出的几部古装剧明显减少了磨皮强度，观众反馈正面，有制片人透露平台已给出“真实感”建议。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo-text" style="font-size: 24px;">51<span>吃瓜</span></div>
+                    <p>一个专注娱乐话题聚合与理性讨论的专题页面。我们不生产瓜，只做瓜田的整理工。</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>快速导航</h4>
+                        <a href="/#hot">热门推荐</a>
+                        <a href="/#latest">最新动态</a>
+                        <a href="/#category">分类入口</a>
+                        <a href="/#analysis">深度解析</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>互动</h4>
+                        <a href="/#comments">用户评论</a>
+                        <a href="/#faq">常见问题</a>
+                        <a href="/#news">相关资讯</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>友情链接</h4>
+                        <a href="#">娱乐观察站</a>
+                        <a href="#">影视风向标</a>
+                        <a href="#">综艺显微镜</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <span>© 2026 51吃瓜 · 内容仅供娱乐参考，请理性吃瓜</span>
+                <span>本站信息源于网络公开讨论，不代表平台立场</span>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                  </html>
